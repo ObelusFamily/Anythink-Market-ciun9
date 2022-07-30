@@ -1,7 +1,8 @@
 import ItemMeta from "./ItemMeta";
 import CommentContainer from "./CommentContainer";
-import React from "react";
 import agent from "../../agent";
+import React from "react";
+
 import { connect } from "react-redux";
 import marked from "marked";
 import {
@@ -9,10 +10,13 @@ import {
   ITEM_PAGE_UNLOADED,
 } from "../../constants/actionTypes";
 
+
 const mapStateToProps = (state) => ({
   ...state.item,
   currentUser: state.common.currentUser,
 });
+
+
 
 const mapDispatchToProps = (dispatch) => ({
   onLoad: (payload) => dispatch({ type: ITEM_PAGE_LOADED, payload }),
@@ -38,6 +42,7 @@ class Item extends React.Component {
       return null;
     }
 
+
     const markup = {
       __html: marked(this.props.item.description, { sanitize: true }),
     };
@@ -50,9 +55,16 @@ class Item extends React.Component {
           <div className="row bg-white p-4">
             <div className="col-6">
               <img
-                src={this.props.item.image}
+src = {
+    this.props.item.image
+}
+
                 alt={this.props.item.title}
                 className="item-img"
+                onError={(e) => {
+                  e.onerror = null;
+                  e.target.src = "/placeholder.png";
+                }}
                 style={{ height: "500px", width: "100%", borderRadius: "6px" }}
               />
             </div>
