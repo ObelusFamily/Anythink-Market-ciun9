@@ -9,5 +9,19 @@ Please find more info about each part in the relevant Readme file ([frontend](fr
 When implementing a new feature or fixing a bug, please create a new pull request against `main` from a feature/bug branch and add `@vanessa-cooper` as reviewer.
 
 ## First setup
+To maker sure everything is working, first install [Docker](https://docs.docker.com/get-docker/)
+After that, run the following command:
 
-**[TODO 05/01/2018 @vanessa-cooper]:** _It's been a while since anyone ran a fresh copy of this repo. I think it's worth documenting the steps needed to install and run the repo on a new machine?_
+```bash
+$ docker-v
+$ docker-compose -v
+
+```
+If these commands don't work, please check the [Docker documentation](https://docs.docker.com/install/).
+Otherwise, you can run the following command **from the project root directory**:
+
+```bash
+$ docker-compose up
+```
+
+Test this is working by going to the browser and typing `localhost:3000/api/ping` in the address bar.
